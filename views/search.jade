@@ -1,0 +1,82 @@
+extends layout
+block content
+    h1= "ТИС-словарь ёпта!"
+    form(method="GET", action="/search")
+        input(type='text',value='',placeholder='type smth',name='email')
+        input(type='submit',value='Search!')
+    if search
+        p По запросу #{search}:
+        if items > 0
+            table(border=1, cellpadding=10)
+                thead
+
+                tbody
+                    tr
+                        th
+                            Системный номер
+                        th
+                            Домен
+                        th
+                            Обозначение
+                        th
+                            Наименование концепта
+                        th
+                            Тип поля
+                        th
+                            Длина поля
+                        th
+                            Кол-во знаков после запятой
+                        th
+                            Мин. значение
+                        th
+                            Макс. значение
+                        th
+                            Размерность
+                        th
+                            Номер классификатора
+
+
+
+                    each obj in json
+
+                        tr
+                            td
+                                a(href='/') #{obj.at_syst}
+
+                            td
+                                a(href='/') #{obj.dom}
+
+                            td
+                                a(href='/') #{obj.Den}
+
+                            td
+                                a(href='/') #{obj.Naim}
+
+                            td
+                                a(href='/') #{obj.At_Type}
+
+                            td
+                                a(href='/') #{obj.At_Len}
+
+                            td
+                                a(href='/') #{obj.At_Dec}
+
+                            td
+                                a(href='/') #{obj.At_Min}
+
+                            td
+                                a(href='/') #{obj.At_Max}
+
+                            td
+                                a(href='/') #{obj.At_Razm}
+
+                            td
+                                a(href='/') #{obj.At_Kl}
+            for  i in pages
+                if i != curPage
+                    a(href='/search?email='+search+'&curPage='+i) #{i}
+                else
+                    #{i}
+        else
+            Ничего не найдено
+
