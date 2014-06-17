@@ -2,6 +2,33 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    //link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', type='text/css', href='/codebase/dhtmlx.css')
+    script(src='/codebase/dhtmlx.js')
+    //script(src='/js/rowSelecter.js')
+
+
+    //test
+    link(rel="stylesheet",type="text/css",href='/css/jquery.dataTables.css')
+    script(type="text/javascript", language="javascript", src='/js/jquery.js')
+    script(type="text/javascript", language="javascript", src='/js/jquery.dataTables.js')
+    script(type="text/javascript", language="javascript", class="init").
+        $(document).ready(function() {
+            var table = $('#my_table').DataTable();
+            $('#my_table tbody').on( 'click', 'tr', function () {
+                if ( $(this).hasClass('selected') ) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            } );
+
+            $('#delete').click( function () {
+                table.row('.selected').remove().draw( false );
+            } );
+        } );
+
   body
     block content

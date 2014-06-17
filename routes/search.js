@@ -9,45 +9,13 @@ var app = express();
 app.use(bodyParser());
 var router = express.Router();
 var jsonString = JSON.parse(fs.readFileSync('db.json', 'utf8'));
-/*{
-    "objects" :
-     [ {
-        "at_syst": "detal",
-        "dom": "~1.0.0",
-        "Den": "~1.0.1",
-        "Naim": "Первая деталь",
-        "At_Type": "~0.7.4",
-        "At_Len": "~1.3.0",
-        "At_Dec": "",
-        "At_Min": "",
-        "At_Max": "",
-        "At_Razm": "",
-        "At_Kl": ""
-} ,
-     {
-        "at_syst": "detal2",
-        "dom": "~1.0.0",
-        "Den": "~1.0.1",
-        "Naim": "Вторая деталь",
-        "At_Type": "~0.7.4",
-        "At_Len": "~1.3.0",
-        "At_Dec": "",
-        "At_Min": "",
-        "At_Max": "",
-        "At_Razm": "",
-        "At_Kl": ""
-    } ]
-}
-*/
-
-//var jsonObj = JSON.parse(jsonString);
-
 
 /* GET home page. */
 router.get('/', function(req, res) {
     var itemsNumber = 2;
 
-    var first_field = req.param("email");
+    var first_field = req.param("searchField");
+
     var curPage = req.param("curPage");
     if (first_field != null) {
         var array = [];
@@ -97,7 +65,7 @@ router.get('/', function(req, res) {
 //            //array = details;
 //        }
     }
-    res.render('search', { search: req.param("email") , items: arrayLen, json: outputArray , curPage: curPage, pages: pages});
+    res.render('search', { search: req.param("searchField") , itemsCount: arrayLen, json: outputArray , curPage: curPage, pages: pages});
 });
 
 module.exports = router;

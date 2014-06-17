@@ -1,0 +1,85 @@
+doctype html
+html
+    head
+        title= title
+        //link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', type='text/css', href='/codebase/dhtmlx.css')
+        script(src='/codebase/dhtmlx.js')
+        //script(src='/js/rowSelecter.js')
+        //test
+        link(rel="stylesheet",type="text/css",href='/css/jquery.dataTables.css')
+        script(type="text/javascript", language="javascript", src='/js/jquery.js')
+        script(type="text/javascript", language="javascript", src='/js/jquery.dataTables.js')
+        script(type="text/javascript", language="javascript", class="init").
+            $(document).ready(function() {
+                var selectedObjectID;
+                var table = $('#my_table').DataTable();
+                $('#my_table tbody').on( 'click', 'tr', function () {
+                    if ( $(this).hasClass('selected') ) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        table.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                        selectedObjectID = this.id;
+                    }
+                } );
+                $('#delete').click( function () {
+                    table.row('.selected').remove().draw( false );
+                    var parameters = { id: selectedObjectID };
+                    $.get( '/deleteObject', parameters, function(data) {
+                        $('#results').html(data);
+                    });
+                } );
+            } );
+    body
+        h1= "ТИС-словарь"
+        table
+            thead
+            tbody
+                tr
+                    td
+                        a(href="/addObject")
+                            img(src="/img/Add.png")
+                        a(href="/editObject")
+                            img(src="/img/Edit.png", id="edit")
+                        img(src="/img/Delete.png", id="delete")
+
+            table(border=1, cellpadding=10, id="my_table", class="display")
+                thead
+                    th Системный номер
+                        th Домен
+                        th Обозначение
+                        th Наименование концепта
+                        th Тип поля
+                        th Длина поля
+                        th Кол-во знаков после запятой
+                        th Мин. значение
+                        th Макс. значение
+                        th Размерность
+                        th Номер классификатора
+                tbody
+                    each obj in jsonObjects
+                        tr(id="#{obj.id}")
+                            td
+                                | #{obj.at_syst}
+                            td
+                                | #{obj.dom}
+                            td
+                                | #{obj.Den}
+                            td
+                                | #{obj.Naim}
+                            td
+                                | #{obj.At_Type}
+                            td
+                                | #{obj.At_Len}
+                            td
+                                | #{obj.At_Dec}
+                            td
+                                | #{obj.At_Min}
+                            td
+                                | #{obj.At_Max}
+                            td
+                                | #{obj.At_Razm}
+                            td
+                                | #{obj.At_Kl}

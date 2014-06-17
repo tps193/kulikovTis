@@ -1,82 +1,86 @@
 extends layout
 block content
-    h1= "ТИС-словарь ёпта!"
-    form(method="GET", action="/search")
-        input(type='text',value='',placeholder='type smth',name='email')
-        input(type='submit',value='Search!')
+    h1= "ТИС-словарь"
+    table
+        thead
+
+        tbody
+            tr
+                td
+
+                    //form(method="GET", action="/search")
+                    //    input(type='text',value='',placeholder='Домен/Обозначение/Наименование',name='searchField', size=50)
+                    //    input(type='submit',value='Поиск!')
+                td
+                    a(href="/addObject")
+                        img(src="/img/Add.png")
+                    a(href="/editObject")
+                        img(src="/img/Edit.png", id="edit")
+                    img(src="/img/Delete.png", id="delete")
+
     if search
-        p По запросу #{search}:
-        if items > 0
-            table(border=1, cellpadding=10)
-                thead
+        p По запросу
+            b  "#{search}"
+            if itemsCount > 0
+                |  найдено
+                b  #{itemsCount}
+                |  объектов
+                p
+                    table(border=1, cellpadding=10, id="my_table", class="display")
+                        thead
+                            th Системный номер
+                                th Домен
+                                th Обозначение
+                                th Наименование концепта
+                                th Тип поля
+                                th Длина поля
+                                th Кол-во знаков после запятой
+                                th Мин. значение
+                                th Макс. значение
+                                th Размерность
+                                th Номер классификатора
 
-                tbody
-                    tr
-                        th
-                            Системный номер
-                        th
-                            Домен
-                        th
-                            Обозначение
-                        th
-                            Наименование концепта
-                        th
-                            Тип поля
-                        th
-                            Длина поля
-                        th
-                            Кол-во знаков после запятой
-                        th
-                            Мин. значение
-                        th
-                            Макс. значение
-                        th
-                            Размерность
-                        th
-                            Номер классификатора
+                        tbody
+                            each obj in json
+                                //tr(onClick="highLight(this,'#c9cc99','cc3333');")
+                                tr
+                                    td
+                                        | #{obj.at_syst}
 
+                                    td
+                                        | #{obj.dom}
 
+                                    td
+                                        | #{obj.Den}
 
-                    each obj in json
+                                    td
+                                        | #{obj.Naim}
 
-                        tr
-                            td
-                                a(href='/') #{obj.at_syst}
+                                    td
+                                        | #{obj.At_Type}
 
-                            td
-                                a(href='/') #{obj.dom}
+                                    td
+                                        | #{obj.At_Len}
 
-                            td
-                                a(href='/') #{obj.Den}
+                                    td
+                                        | #{obj.At_Dec}
 
-                            td
-                                a(href='/') #{obj.Naim}
+                                    td
+                                        | #{obj.At_Min}
 
-                            td
-                                a(href='/') #{obj.At_Type}
+                                    td
+                                        | #{obj.At_Max}
 
-                            td
-                                a(href='/') #{obj.At_Len}
+                                    td
+                                        | #{obj.At_Razm}
 
-                            td
-                                a(href='/') #{obj.At_Dec}
-
-                            td
-                                a(href='/') #{obj.At_Min}
-
-                            td
-                                a(href='/') #{obj.At_Max}
-
-                            td
-                                a(href='/') #{obj.At_Razm}
-
-                            td
-                                a(href='/') #{obj.At_Kl}
-            for  i in pages
-                if i != curPage
-                    a(href='/search?email='+search+'&curPage='+i) #{i}
-                else
-                    #{i}
-        else
-            Ничего не найдено
+                                    td
+                                        | #{obj.At_Kl}
+                for  i in pages
+                    if i != curPage
+                        a(href='/search?searchField='+search+'&curPage='+i) #{i}
+                    else
+                        #{i}
+            else
+                |  ничего не найдено
 
