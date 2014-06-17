@@ -10,7 +10,11 @@ html
         script(type="text/javascript", language="javascript", class="init").
             $(document).ready(function() {
                 var selectedObjectID;
-                var table = $('#my_table').DataTable();
+                var table = $('#my_table').dataTable( {
+                    "language": {
+                        "url": "../resources/ru_RU.txt"
+                    }
+                } );
                 $('#my_table tbody').on( 'click', 'tr', function () {
                     if ( $(this).hasClass('selected') ) {
                         $(this).removeClass('selected');

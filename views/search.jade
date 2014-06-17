@@ -7,7 +7,11 @@ html
         script(type="text/javascript", language="javascript", src='/js/jquery.dataTables.js')
         script(type="text/javascript", language="javascript", class="init").
             $(document).ready(function() {
-                $('#my_table').DataTable();
+                $('#my_table').dataTable( {
+                    "language": {
+                        "url": "../resources/ru_RU.txt"
+                    }
+                } );
             } );
     body
         h1= "ТИС-словарь"
