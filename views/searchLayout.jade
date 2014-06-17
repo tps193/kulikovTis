@@ -1,3 +1,6 @@
+//
+   Created by e.eremeev on 17/06/2014.
+
 doctype html
 html
     head
@@ -9,7 +12,11 @@ html
             $(document).ready(function() {
                 $('#my_table').DataTable();
             } );
+        block scriptBlock
+
     body
+        block editBlock
+
         h1= "ТИС-словарь"
         table(border=1, cellpadding=10, id="my_table", class="display")
             thead
@@ -24,39 +31,28 @@ html
                     th Макс. значение
                     th Размерность
                     th Номер классификатора
-
             tbody
                 each obj in jsonObjects
                     tr
                         td
                             | #{obj.at_syst}
-
                         td
                             | #{obj.dom}
-
                         td
                             | #{obj.Den}
-
                         td
                             | #{obj.Naim}
-
                         td
                             | #{obj.At_Type}
-
                         td
                             | #{obj.At_Len}
-
                         td
                             | #{obj.At_Dec}
-
                         td
                             | #{obj.At_Min}
-
                         td
                             | #{obj.At_Max}
-
                         td
                             | #{obj.At_Razm}
-
                         td
                             | #{obj.At_Kl}

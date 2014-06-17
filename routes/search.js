@@ -65,7 +65,7 @@ router.get('/', function(req, res) {
 //            //array = details;
 //        }
     }
-    res.render('search', { search: req.param("searchField") , itemsCount: arrayLen, json: outputArray , curPage: curPage, pages: pages});
+    res.render('search', { search: req.param("searchField") , itemsCount: arrayLen, json: outputArray , curPage: curPage, pages: pages, jsonObjects: jsonString.objects });
 });
 
 module.exports = router;

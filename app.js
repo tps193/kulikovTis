@@ -10,6 +10,7 @@ var search = require('./routes/search');
 var deleteObject = require('./routes/deleteObject');
 var searchEdit = require('./routes/searchEdit');
 var addObject = require('./routes/addObject');
+var editObject = require('./routes/editObject');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/search', search);
 app.use('/searchEdit', searchEdit);
 app.use('/deleteObject', deleteObject);
 app.use('/addObject', addObject);
+app.use('/editObject', editObject);
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

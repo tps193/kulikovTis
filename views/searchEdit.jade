@@ -2,11 +2,8 @@ doctype html
 html
     head
         title= title
-        //link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel='stylesheet', type='text/css', href='/codebase/dhtmlx.css')
         script(src='/codebase/dhtmlx.js')
-        //script(src='/js/rowSelecter.js')
-        //test
         link(rel="stylesheet",type="text/css",href='/css/jquery.dataTables.css')
         script(type="text/javascript", language="javascript", src='/js/jquery.js')
         script(type="text/javascript", language="javascript", src='/js/jquery.dataTables.js')
@@ -31,9 +28,19 @@ html
                         $('#results').html(data);
                     });
                 } );
+
+                $('#edit').click( function () {
+
+                    window.location.replace('/editObject/'+selectedObjectID);
+
+
+                } );
+
             } );
     body
         h1= "ТИС-словарь"
+        div(id="myForm")
+
         table
             thead
             tbody
@@ -41,23 +48,22 @@ html
                     td
                         a(href="/addObject")
                             img(src="/img/Add.png")
-                        a(href="/editObject")
-                            img(src="/img/Edit.png", id="edit")
+                        img(src="/img/Edit.png", id="edit")
                         img(src="/img/Delete.png", id="delete")
 
             table(border=1, cellpadding=10, id="my_table", class="display")
                 thead
                     th Системный номер
-                        th Домен
-                        th Обозначение
-                        th Наименование концепта
-                        th Тип поля
-                        th Длина поля
-                        th Кол-во знаков после запятой
-                        th Мин. значение
-                        th Макс. значение
-                        th Размерность
-                        th Номер классификатора
+                    th Домен
+                    th Обозначение
+                    th Наименование концепта
+                    th Тип поля
+                    th Длина поля
+                    th Кол-во знаков после запятой
+                    th Мин. значение
+                    th Макс. значение
+                    th Размерность
+                    th Номер классификатора
                 tbody
                     each obj in jsonObjects
                         tr(id="#{obj.id}")

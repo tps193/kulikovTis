@@ -3,11 +3,20 @@
  */
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res) {
+    res.render('addObject', { reqParam: req.param("Naim") });
+});
 
-    var jsonObj = new Object();
+router.get('/add', function(req, res) {
+    var outputFilename = 'db.json';
+    var jsonString = JSON.parse(fs.readFileSync(outputFilename, 'utf8'));
+
+
+    var jsonObj = new Object()
+    jsonObj.id = (jsonString.objects[jsonString.objects.length-1].id+1);
     jsonObj.at_syst = req.param("at_syst");
     jsonObj.dom = req.param("dom");
     jsonObj.Den = req.param("Den");
@@ -18,10 +27,12 @@ router.get('/', function(req, res) {
     jsonObj.At_Min = req.param("At_Min");
     jsonObj.At_Max = req.param("At_Max");
     jsonObj.At_Razm = req.param("At_Razm");
+    jsonObj.At_Kl = req.param("At_Kl");
+    jsonString.objects[jsonString.objects.length]=jsonObj
 
-    var jsonString = JSON.stringify(jsonObj);
+    fs.writeFile(outputFilename, JSON.stringify(jsonString, null, 4), function(err) {});
 
-    res.render('addObject', { reqParam: req.param("Naim") });
+    res.render('searchEdit', { jsonObjects: jsonString.objects });
 });
 
 module.exports = router;

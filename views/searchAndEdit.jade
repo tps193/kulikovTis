@@ -1,0 +1,46 @@
+//
+   Created by e.eremeev on 17/06/2014.
+
+extends searchLayout
+block edit
+    div(id="myForm")
+    table
+        thead
+        tbody
+            tr
+                td
+                    a(href="/addObject")
+                        img(src="/img/Add.png")
+                    img(src="/img/Edit.png", id="edit")
+                    img(src="/img/Delete.png", id="delete")
+block scriptBlock
+    script(type="text/javascript", language="javascript", class="init").
+        $(document).ready(function() {
+            var selectedObjectID;
+            var table = $('#my_table').DataTable();
+            $('#my_table tbody').on( 'click', 'tr', function () {
+                if ( $(this).hasClass('selected') ) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                    selectedObjectID = this.id;
+                }
+            } );
+            $('#delete').click( function () {
+                table.row('.selected').remove().draw( false );
+                var parameters = { id: selectedObjectID };
+                $.get( '/deleteObject', parameters, function(data) {
+                    $('#results').html(data);
+                });
+            } );
+
+            $('#edit').click( function () {
+
+                window.location.replace('/editObject/'+selectedObjectID);
+
+
+            } );
+
+        } );

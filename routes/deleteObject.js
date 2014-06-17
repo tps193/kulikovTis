@@ -9,6 +9,7 @@ router.get('/', function(req, res) {
     for(i=0;i<jsonString.objects.length;i++) {
         if(jsonString.objects[i].id==selectedObjectID) {
             delete jsonString.objects[i];
+            break;
         }
     }
 
@@ -30,7 +31,8 @@ router.get('/', function(req, res) {
         }
     });
 
-    res.send('TEST!');
+//    res.send('TEST!');
+    res.render('searchEdit', { jsonObjects: jsonString.objects });
 });
 
 

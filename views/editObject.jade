@@ -1,0 +1,49 @@
+//
+   Created by e.eremeev on 17/06/2014.
+
+extends layout
+block content
+    h1= "Добавление объекта"
+    form(method="POST", action="")
+        table(border=1, cellpadding=10)
+            tbody
+                tr
+                    th Системный номер
+                    th Домен
+                    th Обозначение
+                    th Наименование концепта
+                    th Тип поля
+                    th Длина поля
+                    th Кол-во знаков после запятой
+                    th Мин. значение
+                    th Макс. значение
+                    th Размерность
+                    th Номер классификатора
+                tr
+                    td
+                        input(type='text',value=jsonObject.at_syst ,name='at_syst')
+                    td
+                        input(type='text',value=jsonObject.dom,name='dom')
+                    td
+                        input(type='text',value=jsonObject.Den,name='Den')
+                    td
+                        input(type='text',value=jsonObject.Naim,name='Naim')
+                    td
+                        input(type='text',value=jsonObject.At_Type,name='At_Type')
+                    td
+                        input(type='text',value=jsonObject.At_Len,name='At_Len')
+                    td
+                        input(type='text',value=jsonObject.At_Dec,name='At_Dec')
+                    td
+                        input(type='text',value=jsonObject.At_Min,name='At_Min')
+                    td
+                        input(type='text',value=jsonObject.At_Max,name='At_Max')
+                    td
+                        input(type='text',value=jsonObject.At_Razm,name='At_Razm')
+                    td
+                        input(type='text',value=jsonObject.At_Kl,name='At_Kl')
+        p
+            input(type='submit',value='Редактировать')
+    if reqParam
+        script.
+            dhtmlx.alert("Объект успешно отредактирован!");
