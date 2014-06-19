@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
         if(jsonString.objects[i].id==selectedObjectID) {
             delete jsonString.objects[i];
             break;
-        }
+    }
     }
 
     var temp = [];

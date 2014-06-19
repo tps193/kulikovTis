@@ -1,20 +1,33 @@
 doctype html
 html
     head
-        title= title
+        title= "ТИС-словарь"
         link(rel='stylesheet', type='text/css', href='/codebase/dhtmlx.css')
         script(src='/codebase/dhtmlx.js')
         link(rel="stylesheet",type="text/css",href='/css/jquery.dataTables.css')
         script(type="text/javascript", language="javascript", src='/js/jquery.js')
         script(type="text/javascript", language="javascript", src='/js/jquery.dataTables.js')
         script(type="text/javascript", language="javascript", class="init").
+            function filterColumn ( i ) {
+                $('#my_table').DataTable().column( i ).search(
+                    $('#col'+i+'_filter').val()
+                ).draw();
+            }
             $(document).ready(function() {
+
                 var selectedObjectID;
-                var table = $('#my_table').dataTable( {
-                    "language": {
-                        "url": "../resources/ru_RU.txt"
-                    }
+
+                var table = $('#my_table').DataTable( {
+                                   "language": {
+                                       "url": "../resources/ru_RU.txt"
+                                   }
                 } );
+
+                $('input.column_filter').on( 'keyup click', function () {
+                    filterColumn( $(this).parents('td').attr('data-column') );
+                } );
+
+
                 $('#my_table tbody').on( 'click', 'tr', function () {
                     if ( $(this).hasClass('selected') ) {
                         $(this).removeClass('selected');
@@ -45,8 +58,22 @@ html
         h1= "ТИС-словарь"
         div(id="myForm")
 
+        table(cellpadding="3",cellspacing="0", border="0", style="width: 30%; margin: 0 auto 2em auto;")
+            tbody
+                tr
+                    th Домен
+                    th Обозначение
+                    th Наименование концепта
+
+                tr( id="filter_col1", data-column="1")
+                    td(align="center",id="filter_col1", data-column="1")
+                        input( type="text", class="column_filter", id="col1_filter",placeholder='Домен')
+                    td(align="center", id="filter_col2", data-column="2")
+                        input( type="text", class="column_filter", id="col2_filter",placeholder='Обозначение')
+                    td(align="center", id="filter_col3", data-column="3")
+                        input( type="text", class="column_filter", id="col3_filter",placeholder='Наименование концепта')
+
         table
-            thead
             tbody
                 tr
                     td
@@ -68,6 +95,7 @@ html
                     th Макс. значение
                     th Размерность
                     th Номер классификатора
+
                 tbody
                     each obj in jsonObjects
                         tr(id="#{obj.id}")
