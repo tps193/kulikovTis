@@ -9,6 +9,16 @@ html
         script(src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/localization/messages_ru.js")
         script(type="text/javascript", language="javascript", class="init").
             $(document).ready(function() {
+                $.validator.addMethod("greaterThan", function (value, element, param) {
+                    var $min = $(param);
+                    if (this.settings.onfocusout) {
+                        $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
+                            $(element).valid();
+                        });
+                    }
+                                    return parseInt(value) > parseInt($min.val());
+                }, "Максимум должен быть больше чем минимум");
+
                 $('#myform').validate({ // initialize the plugin
                     rules: {
                         at_syst: "required",
@@ -37,7 +47,8 @@ html
                             required: true
                         },
                         At_Max: {
-                            required: true
+                            required: true,
+                            greaterThan:'#At_Min'
                         },
                         At_Razm: {
                             required: true
@@ -102,7 +113,7 @@ html
                         td
                             input(type='text',value='',placeholder='At_Dec',name='At_Dec')
                         td
-                            input(type='text',value='',placeholder='At_Min',name='At_Min')
+                            input(type='text',value='',placeholder='At_Min',name='At_Min', id='At_Min')
                         td
                             input(type='text',value='',placeholder='At_Max',name='At_Max')
                         td
