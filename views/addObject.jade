@@ -1,46 +1,115 @@
-extends layout
-block content
-    h1= "Добавление объекта"
-    form(method="GET", action="addObject/add")
-        table(border=1, cellpadding=10)
-            tbody
-                tr
-                    th Системный номер
-                    th Домен
-                    th Обозначение
-                    th Наименование концепта
-                    th Тип поля
-                    th Длина поля
-                    th Кол-во знаков после запятой
-                    th Мин. значение
-                    th Макс. значение
-                    th Размерность
-                    th Номер классификатора
-                tr
-                    td
-                        input(type='text',value='',placeholder='at_syst',name='at_syst')
-                    td
-                        input(type='text',value='',placeholder='dom',name='dom')
-                    td
-                        input(type='text',value='',placeholder='Den',name='Den')
-                    td
-                        input(type='text',value='',placeholder='наименование',name='Naim')
-                    td
-                        input(type='text',value='',placeholder='At_Type',name='At_Type')
-                    td
-                        input(type='text',value='',placeholder='At_Len',name='At_Len')
-                    td
-                        input(type='text',value='',placeholder='At_Dec',name='At_Dec')
-                    td
-                        input(type='text',value='',placeholder='At_Min',name='At_Min')
-                    td
-                        input(type='text',value='',placeholder='At_Max',name='At_Max')
-                    td
-                        input(type='text',value='',placeholder='At_Razm',name='At_Razm')
-                    td
-                        input(type='text',value='',placeholder='At_Kl',name='At_Kl')
-        p
+doctype html
+html
+    head
+        title= "Добавить объект"
+        link(rel='stylesheet', type='text/css', href='/codebase/dhtmlx.css')
+        script(src='/codebase/dhtmlx.js')
+        script(type="text/javascript", language="javascript", src='/js/jquery.js')
+        script(src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js")
+        script(src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/localization/messages_ru.js")
+        script(type="text/javascript", language="javascript", class="init").
+            $(document).ready(function() {
+                $('#myform').validate({ // initialize the plugin
+                    rules: {
+                        at_syst: "required",
+                        dom: {
+                            required: true
+                        },
+                        Den: {
+                            required: true
+                        },
+                        Naim: {
+                            required: true
+                        },
+                        At_Type: {
+                            required: true
+                        },
+                        At_Len: {
+                            required: true,
+                            number: true
+                        },
+                        At_Dec: {
+                            required: true,
+                            number: true
+                        },
+                        At_Min: {
+                            required: true
+                        },
+                        At_Max: {
+                            required: true
+                        },
+                        At_Razm: {
+                            required: true
+                        },
+                        At_Kl: {
+                            required: true
+                        }
+                    },
+                    submitHandler: function (form) {
+                        if ($('#myform').valid()) {
+                            //common initialization
+                            dhtmlx.message({
+                                title: "Ок",
+                                type: "alert-warning",
+                                text: "Объект успешно добавлен!",
+                                callback: function() {
+                                    form.submit();
+                                }
+                            });
+
+
+
+                        }
+                    }
+                });
+
+                $('#edit').click( function () {
+                    window.location.replace('/editObject/'+selectedObjectID);
+                } );
+
+            } );
+    body
+        h1= "Добавление объекта"
+        form(method="GET", action='addObject/add', id="myform")
+            table(border=1, cellpadding=10)
+                tbody
+                    tr
+                        th Системный номер
+                        th Домен
+                        th Обозначение
+                        th Наименование концепта
+                        th Тип поля
+                        th Длина поля
+                        th Кол-во знаков после запятой
+                        th Мин. значение
+                        th Макс. значение
+                        th Размерность
+                        th Номер классификатора
+                    tr
+                        td
+                            input(type='text',value='',placeholder='at_syst',name='at_syst')
+                        td
+                            input(type='text',value='',placeholder='dom',name='dom')
+                        td
+                            input(type='text',value='',placeholder='Den',name='Den')
+                        td
+                            input(type='text',value='',placeholder='наименование',name='Naim')
+                        td
+                            input(type='text',value='',placeholder='At_Type',name='At_Type')
+                        td
+                            input(type='text',value='',placeholder='At_Len',name='At_Len')
+                        td
+                            input(type='text',value='',placeholder='At_Dec',name='At_Dec')
+                        td
+                            input(type='text',value='',placeholder='At_Min',name='At_Min')
+                        td
+                            input(type='text',value='',placeholder='At_Max',name='At_Max')
+                        td
+                            input(type='text',value='',placeholder='At_Razm',name='At_Razm')
+                        td
+                            input(type='text',value='',placeholder='At_Kl',name='At_Kl')
+            p
             input(type='submit',value='Добавить')
-    if reqParam
-        script.
-            dhtmlx.alert("Объект успешно добавлен!");
+        if reqParam
+            script.
+                dhtmlx.alert("Объект успешно добавлен!");

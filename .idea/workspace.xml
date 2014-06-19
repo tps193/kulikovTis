@@ -57,34 +57,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="searchEdit.jade" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="searchEdit.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/searchEdit.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6136364" vertical-offset="863" max-vertical-offset="2193">
-              <caret line="73" column="118" selection-start-line="73" selection-start-column="118" selection-end-line="73" selection-end-column="118" />
+            <state vertical-scroll-proportion="-17.0" vertical-offset="510" max-vertical-offset="2193">
+              <caret line="55" column="16" selection-start-line="9" selection-start-column="8" selection-end-line="55" selection-end-column="16" />
               <folding>
-                <marker date="1403180949189" expanded="true" signature="550:702" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="744:2165" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="744:1173" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="744:1094" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="744:1046" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="744:1046" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="840:1016" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="840:1016" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="840:1016" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="840:1016" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="840:1016" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="840:1016" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="889:998" placeholder="{&quot;url&quot;: &quot;../resources/ru_RU.txt&quot;...}" />
-                <marker date="1403180949189" expanded="true" signature="1093:1191" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="1093:1173" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="1174:1191" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="1265:1648" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="1323:1403" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="1429:1630" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="1700:1996" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="1903:1976" placeholder="{...}" />
-                <marker date="1403180949189" expanded="true" signature="2047:2147" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="550:702" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="744:2129" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="744:1137" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="744:1058" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="744:1010" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="744:1010" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="840:980" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="840:980" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="840:980" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="840:980" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="840:980" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="840:980" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="877:962" placeholder="{&quot;url&quot;: &quot;../resources/ru_RU.txt&quot;...}" />
+                <marker date="1403181113150" expanded="true" signature="1057:1155" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="1057:1137" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="1138:1155" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="1229:1612" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="1287:1367" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="1393:1594" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="1664:1960" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="1867:1940" placeholder="{...}" />
+                <marker date="1403181113150" expanded="true" signature="2011:2111" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -115,8 +115,8 @@
       <file leaf-file-name="layout.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/layout.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="663">
-              <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="17" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="663">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="6" />
               <folding>
                 <marker date="1402930959404" expanded="true" signature="621:1178" placeholder="{...}" />
                 <marker date="1402930959404" expanded="true" signature="739:1038" placeholder="{...}" />
@@ -138,12 +138,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addObject.jade" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="addObject.jade" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/addObject.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.24" vertical-offset="34" max-vertical-offset="867">
-              <caret line="20" column="72" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="72" />
-              <folding />
+            <state vertical-scroll-proportion="0.5226209" vertical-offset="532" max-vertical-offset="2040">
+              <caret line="51" column="44" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
+              <folding>
+                <marker date="1403185839594" expanded="true" signature="580:1859" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="580:621" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="580:820" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="580:1962" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="580:2633" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="620:1859" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="674:820" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="710:719" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="710:719" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="710:719" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="750:820" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="851:921" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="953:1023" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="1058:1128" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="1162:1274" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="1308:1420" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="1454:1524" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="1558:1628" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="1663:1733" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="1766:1836" placeholder="{&quot;required&quot;: true...}" />
+                <marker date="1403185839594" expanded="true" signature="1911:2450" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="1911:1962" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="1963:2428" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="2060:2397" placeholder="{&quot;title&quot;: &quot;Ок&quot;...}" />
+                <marker date="1403185839594" expanded="true" signature="2281:2367" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="2518:2615" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="2518:2615" placeholder="{...}" />
+                <marker date="1403185839594" expanded="true" signature="2620:2633" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -170,7 +199,6 @@
         <option value="$PROJECT_DIR$/views/editObject.jade" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/editObject.js" />
-        <option value="$PROJECT_DIR$/views/addObject.jade" />
         <option value="$PROJECT_DIR$/db.json" />
         <option value="$PROJECT_DIR$/routes/addObject.js" />
         <option value="$PROJECT_DIR$/views/search-block.jade" />
@@ -184,6 +212,7 @@
         <option value="$PROJECT_DIR$/objectsprovider.js" />
         <option value="$PROJECT_DIR$/routes/deleteObject.js" />
         <option value="$PROJECT_DIR$/views/searchEdit.jade" />
+        <option value="$PROJECT_DIR$/views/addObject.jade" />
       </list>
     </option>
   </component>
@@ -832,20 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="17" />
-          <folding>
-            <marker date="1402930959404" expanded="true" signature="621:1178" placeholder="{...}" />
-            <marker date="1402930959404" expanded="true" signature="739:1038" placeholder="{...}" />
-            <marker date="1402930959404" expanded="true" signature="793:865" placeholder="{...}" />
-            <marker date="1402930959404" expanded="true" signature="887:1024" placeholder="{...}" />
-            <marker date="1402930959404" expanded="true" signature="1087:1165" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
@@ -873,6 +888,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/addObject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+          <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/objectsprovider.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
@@ -891,49 +914,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/addObject.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.24" vertical-offset="34" max-vertical-offset="867">
-          <caret line="20" column="72" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/addObject.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-          <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/searchEdit.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6136364" vertical-offset="863" max-vertical-offset="2193">
-          <caret line="73" column="118" selection-start-line="73" selection-start-column="118" selection-end-line="73" selection-end-column="118" />
+        <state vertical-scroll-proportion="-17.0" vertical-offset="510" max-vertical-offset="2193">
+          <caret line="55" column="16" selection-start-line="9" selection-start-column="8" selection-end-line="55" selection-end-column="16" />
           <folding>
-            <marker date="1403180949189" expanded="true" signature="550:702" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="744:2165" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="744:1173" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="744:1094" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="744:1046" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="744:1046" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="840:1016" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="840:1016" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="840:1016" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="840:1016" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="840:1016" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="840:1016" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="889:998" placeholder="{&quot;url&quot;: &quot;../resources/ru_RU.txt&quot;...}" />
-            <marker date="1403180949189" expanded="true" signature="1093:1191" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="1093:1173" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="1174:1191" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="1265:1648" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="1323:1403" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="1429:1630" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="1700:1996" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="1903:1976" placeholder="{...}" />
-            <marker date="1403180949189" expanded="true" signature="2047:2147" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="550:702" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="744:2129" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="744:1137" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="744:1058" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="744:1010" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="744:1010" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="840:980" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="840:980" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="840:980" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="840:980" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="840:980" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="840:980" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="877:962" placeholder="{&quot;url&quot;: &quot;../resources/ru_RU.txt&quot;...}" />
+            <marker date="1403181113150" expanded="true" signature="1057:1155" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="1057:1137" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="1138:1155" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="1229:1612" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="1287:1367" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="1393:1594" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="1664:1960" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="1867:1940" placeholder="{...}" />
+            <marker date="1403181113150" expanded="true" signature="2011:2111" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="663">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="6" />
+          <folding>
+            <marker date="1402930959404" expanded="true" signature="621:1178" placeholder="{...}" />
+            <marker date="1402930959404" expanded="true" signature="739:1038" placeholder="{...}" />
+            <marker date="1402930959404" expanded="true" signature="793:865" placeholder="{...}" />
+            <marker date="1402930959404" expanded="true" signature="887:1024" placeholder="{...}" />
+            <marker date="1402930959404" expanded="true" signature="1087:1165" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/addObject.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5226209" vertical-offset="532" max-vertical-offset="2040">
+          <caret line="51" column="44" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
+          <folding>
+            <marker date="1403185839594" expanded="true" signature="580:1859" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="580:621" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="580:820" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="580:1962" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="580:2633" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="620:1859" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="674:820" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="710:719" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="710:719" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="710:719" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="750:820" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="851:921" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="953:1023" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="1058:1128" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="1162:1274" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="1308:1420" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="1454:1524" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="1558:1628" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="1663:1733" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="1766:1836" placeholder="{&quot;required&quot;: true...}" />
+            <marker date="1403185839594" expanded="true" signature="1911:2450" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="1911:1962" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="1963:2428" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="2060:2397" placeholder="{&quot;title&quot;: &quot;Ок&quot;...}" />
+            <marker date="1403185839594" expanded="true" signature="2281:2367" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="2518:2615" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="2518:2615" placeholder="{...}" />
+            <marker date="1403185839594" expanded="true" signature="2620:2633" placeholder="{...}" />
           </folding>
         </state>
       </provider>
