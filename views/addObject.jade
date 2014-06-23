@@ -22,18 +22,34 @@ html
                 $.validator.addMethod("validSymbols", function (value, element, param) {
                     var $type = $(param);
                     var mask;
+                    var len = "" ? 0 : parseInt($("#At_Len").val());
                     if ($type.val() == "int") {
-                        mask = "^((-[0-9]{1,9})|([0-9]{1,10}))$";
+                        mask = "^((-[0-9]{1," + (len-1) + "})|([0-9]{1," + len +"}))$";
                     } else if ($type.val() == "float") {
-                        mask = "^((-{0,1}\\d+\\.\\d+)|(-{0,1}\\d+))$";
+                        var afterDotSymbols = "" ? 0 : parseInt($("#At_Dec").val());
+                        mask = "^((-{0,1}\\d{1,"+(len-afterDotSymbols)+"}\\.\\d{1,"+afterDotSymbols+"})|(-{0,1}\\d{0,+"+len+"))$";
                     } else {
-                        mask = "^.{1,256}$";
+                        mask = "^.{1,"+len+"}$";
                     }
-
                     var mask = new RegExp(mask);
                     var b = mask.test(value);
                                     return mask.test(value);
                 }, "Некорректный формат данных");
+
+                $.validator.addMethod("fieldLength", function (value, element, param) {
+                    var $type = $(param);
+                    var len=value;
+                    var max,min;
+                    min = 0;max =10;
+                    if ($type.val() == "int") {
+                        return len>0 && len<11;
+                    } else if ($type.val() == "float") {
+                        return len>0 && len <=10;
+                    } else {
+                        max = 256;
+                        return len>0 && len<257;
+                    }
+                }, "Введите корректный размер поля.");
 
                 $('#myform').validate({ // initialize the plugin
                     rules: {
@@ -52,11 +68,13 @@ html
                         },
                         At_Len: {
                             required: true,
-                            number: true
+                            number: true,
+                            fieldLength: '#At_Type',
+                            min: 1
                         },
                         At_Dec: {
                             required: true,
-                            min: 0,
+                            min: 1,
                             number: true
                         },
                         At_Min: {
@@ -130,16 +148,28 @@ html
                                 option(value="float") Вещественное
                                 option(value="string") Строковый
                         td
-                            input(type='text',value='',placeholder='At_Len',name='At_Len')
+                            input(type='text',value='',placeholder='At_Len',name='At_Len',id = 'At_Len')
                         td
-                            input(type='text',value='',placeholder='At_Dec',name='At_Dec')
+                            input(type='text',value='',placeholder='At_Dec',name='At_Dec', id= 'At_Dec')
                         td
                             input(type='text',value='',placeholder='At_Min',name='At_Min', id='At_Min')
                         td
                             input(type='text',value='',placeholder='At_Max',name='At_Max')
                         td
-                            input(type='text',value='',placeholder='At_Razm',name='At_Razm')
+                            select(name='At_Razm', id='At_Razm')
+                                option(value='мм') мм
+                                option(value='см') см
+                                option(value='м') м
+                                option(value='°') °
+                                option(value='рад') рад
+                                option(value='\"') "
+                                option(value='рад') рад
+                                option(value='мм²') мм²
+                                option(value='см²') см²
+                                option(value='м²') м²
+                                option(value='об/мин') об/мин
                         td
+
                             input(type='text',value='',placeholder='At_Kl',name='At_Kl')
             p
             input(type='submit',value='Добавить')

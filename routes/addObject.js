@@ -28,7 +28,7 @@ router.get('/add', function(req, res) {
     jsonObj.At_Max = req.param("At_Max");
     jsonObj.At_Razm = req.param("At_Razm");
     jsonObj.At_Kl = req.param("At_Kl");
-    jsonString.objects[jsonString.objects.length]=jsonObj
+    jsonString.objects[jsonString.objects.length]=jsonObj;
 
     fs.writeFile(outputFilename, JSON.stringify(jsonString, null, 4), function(err) {});
 
