@@ -19,6 +19,22 @@ html
                                     return parseInt(value) > parseInt($min.val());
                 }, "Максимум должен быть больше чем минимум");
 
+                $.validator.addMethod("validSymbols", function (value, element, param) {
+                    var $type = $(param);
+                    var mask;
+                    if ($type.val() == "int") {
+                        mask = "^((-[0-9]{1,9})|([0-9]{1,10}))$";
+                    } else if ($type.val() == "float") {
+                        mask = "^((-{0,1}\\d+\\.\\d+)|(-{0,1}\\d+))$";
+                    } else {
+                        mask = "^.{1,256}$";
+                    }
+
+                    var mask = new RegExp(mask);
+                    var b = mask.test(value);
+                                    return mask.test(value);
+                }, "Некорректный формат данных");
+
                 $('#myform').validate({ // initialize the plugin
                     rules: {
                         at_syst: "required",
@@ -44,10 +60,12 @@ html
                             number: true
                         },
                         At_Min: {
-                            required: true
+                            required: true,
+                            validSymbols:'#At_Type'
                         },
                         At_Max: {
                             required: true,
+                            validSymbols:'#At_Type',
                             greaterThan:'#At_Min'
                         },
                         At_Razm: {
@@ -107,7 +125,10 @@ html
                         td
                             input(type='text',value='',placeholder='наименование',name='Naim')
                         td
-                            input(type='text',value='',placeholder='At_Type',name='At_Type')
+                            select(name='At_Type', id='At_Type')
+                                option(value='int') Целое
+                                option(value="float") Вещественное
+                                option(value="string") Строковый
                         td
                             input(type='text',value='',placeholder='At_Len',name='At_Len')
                         td
