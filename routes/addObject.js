@@ -15,8 +15,12 @@ router.get('/add', function(req, res) {
     var jsonString = JSON.parse(fs.readFileSync(outputFilename, 'utf8'));
 
 
-    var jsonObj = new Object()
-    jsonObj.id = (jsonString.objects[jsonString.objects.length-1].id+1);
+    var jsonObj = new Object();
+
+    var id = jsonString.objects[jsonString.objects.length-1].id;
+    var newId = parseInt(id) + 1
+
+    jsonObj.id = newId;
     jsonObj.at_syst = req.param("at_syst");
     jsonObj.dom = req.param("dom");
     jsonObj.Den = req.param("Den");

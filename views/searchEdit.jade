@@ -5,17 +5,70 @@ html
         link(rel='stylesheet', type='text/css', href='/codebase/dhtmlx.css')
         script(src='/codebase/dhtmlx.js')
         link(rel="stylesheet",type="text/css",href='/css/jquery.dataTables.css')
+
+
         script(type="text/javascript", language="javascript", src='/js/jquery.js')
         script(type="text/javascript", language="javascript", src='/js/jquery.dataTables.js')
+
+        //Validator
+        script(src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js")
+        script(src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/localization/messages_ru.js")
+
+        //Popup Window
+        link(rel="stylesheet", href="/css/magnific-popup.css")
+        script(src='/js/jquery.magnific-popup.js')
+
+        script(type='text/javascript').
+            var local_data =!{JSON.stringify(jsonObjects)};
+
         script(type="text/javascript", language="javascript", class="init").
+            var selectedObjectID;
             function filterColumn ( i ) {
                 $('#my_table').DataTable().column( i ).search(
                     $('#col'+i+'_filter').val()
                 ).draw();
             }
+
+            function getSelectedObjectID() {
+                return selectedObjectID;
+            }
+
+            function changeValue() {
+                    var selectedObject;
+                    for(var i=0; i<local_data.length; i++) {
+                        if (local_data[i].id==selectedObjectID) {
+                            selectedObject = local_data[i];
+                            break;
+                        }
+                    }
+                    var at_syst = document.getElementById('at_syst');
+                    at_syst.value = selectedObject.at_syst;
+                    var dom = document.getElementById('dom');
+                    dom.value = selectedObject.dom;
+                    var Den = document.getElementById('Den');
+                    Den.value = selectedObject.Den;
+                    var Naim = document.getElementById('Naim');
+                    Naim.value = selectedObject.Naim;
+                    var At_Type = document.getElementById('At_Type');
+                    At_Type.value = selectedObject.At_Type;
+                    var At_Len = document.getElementById('At_Len');
+                    At_Len.value = selectedObject.At_Len;
+                    var At_Dec = document.getElementById('At_Dec');
+                    At_Dec.value = selectedObject.At_Dec;
+                    var At_Min = document.getElementById('At_Min');
+                    At_Min.value = selectedObject.At_Min;
+                    var At_Max = document.getElementById('At_Max');
+                    At_Max.value = selectedObject.At_Max;
+                    var At_Razm = document.getElementById('At_Razm');
+                    At_Razm.value = selectedObject.At_Razm;
+                    var At_Kl = document.getElementById('At_Kl');
+                    At_Kl.value = selectedObject.At_Kl;
+
+                }
+
             $(document).ready(function() {
 
-                var selectedObjectID;
+                //var selectedObjectID;
 
                 var table = $('#my_table').DataTable( {
                        "language": {
@@ -36,28 +89,146 @@ html
                         table.$('tr.selected').removeClass('selected');
                         $(this).addClass('selected');
                         selectedObjectID = this.id;
+                        changeValue();
                     }
                 } );
                 $('#delete').click( function () {
-                    table.row('.selected').remove().draw( false );
-                    var parameters = { id: selectedObjectID };
-                    $.get( '/deleteObject', parameters, function(data) {
-                        $('#results').html(data);
+
+                    dhtmlx.confirm({
+                        title: "Удалить",
+                        cancel: "Отмена",
+                        type:"confirm",
+                        text: "Вы уверены, что хотите удалить объект?",
+                        callback: function(mode) {
+                            if(mode==true) {
+                                table.row('.selected').remove().draw( false );
+                                var parameters = { id: selectedObjectID };
+                                $.get( '/deleteObject', parameters, function(data) {
+                                    $('#results').html(data);
+                                });
+                                dhtmlx.alert("Объект удален!");
+                            }
+                        }
                     });
-                } );
-
-                $('#edit').click( function () {
-
-                    window.location.replace('/editObject/'+selectedObjectID);
-
 
                 } );
+
+                //$('#edit').click( function () {
+                //    window.location.replace('/editObject/'+selectedObjectID);
+                //} );
+
+
+                //POPUP!
+                $('.popup-with-form').magnificPopup({
+                    type: 'inline',
+                    preloader: false
+                });
+
+
+                //validator
+                $.validator.addMethod("greaterThan", function (value, element, param) {
+                    var $min = $(param);
+                    if (this.settings.onfocusout) {
+                        $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
+                            $(element).valid();
+                        });
+                    }
+                                    return parseInt(value) > parseInt($min.val());
+                }, "Максимум должен быть больше чем минимум");
+
+                $.validator.addMethod("validSymbols", function (value, element, param) {
+                    var $type = $(param);
+                    var mask;
+                    var len = "" ? 0 : parseInt($("#At_Len").val());
+                    if ($type.val() == "int") {
+                        mask = "^((-[0-9]{1," + (len-1) + "})|([0-9]{1," + len +"}))$";
+                    } else if ($type.val() == "float") {
+                        var afterDotSymbols = "" ? 0 : parseInt($("#At_Dec").val());
+                        mask = "^((-{0,1}\\d{1,"+(len-afterDotSymbols)+"}\\.\\d{1,"+afterDotSymbols+"})|(-{0,1}\\d{0,+"+len+"))$";
+                    } else {
+                        mask = "^.{1,"+len+"}$";
+                    }
+                    var mask = new RegExp(mask);
+                    var b = mask.test(value);
+                                    return mask.test(value);
+                }, "Некорректный формат данных");
+
+                $.validator.addMethod("fieldLength", function (value, element, param) {
+                    var $type = $(param);
+                    var len=value;
+                    var max,min;
+                    min = 0;max =10;
+                    if ($type.val() == "int") {
+                        return len>0 && len<11;
+                    } else if ($type.val() == "float") {
+                        return len>0 && len <=10;
+                    } else {
+                        max = 256;
+                        return len>0 && len<257;
+                    }
+                }, "Введите корректный размер поля.");
+
+                $('#myform').validate({ // initialize the plugin
+                    rules: {
+                        at_syst: "required",
+                        dom: {
+                            required: true
+                        },
+                        Den: {
+                            required: true
+                        },
+                        Naim: {
+                            required: true
+                        },
+                        At_Type: {
+                            required: true
+                        },
+                        At_Len: {
+                            required: true,
+                            number: true,
+                            fieldLength: '#At_Type',
+                            min: 1
+                        },
+                        At_Dec: {
+                            required: true,
+                            min: 1,
+                            number: true
+                        },
+                        At_Min: {
+                            required: true,
+                            validSymbols:'#At_Type'
+                        },
+                        At_Max: {
+                            required: true,
+                            validSymbols:'#At_Type',
+                            greaterThan:'#At_Min'
+                        },
+                        At_Razm: {
+                            required: true
+                        },
+                        At_Kl: {
+                            required: true
+                        }
+                    },
+                    submitHandler: function (form) {
+                        if ($('#myform').valid()) {
+                            dhtmlx.message({
+                                title: "Ок",
+                                type: "alert-warning",
+                                text: "Объект успешно добавлен!",
+                                callback: function() {
+                                    form.submit();
+                                }
+                            });
+
+                        }
+                    }
+                });
 
             } );
     body
         h1= "ТИС-словарь"
-        div(id="myForm")
-
+        h2 Система сопровождения словаря
         table(cellpadding="3",cellspacing="0", border="0", style="width: 30%; margin: 0 auto 2em auto;")
             tbody
                 tr
@@ -77,9 +248,10 @@ html
             tbody
                 tr
                     td
-                        a(href="/addObject")
+                        a(href="#myform", class="popup-with-form")
                             img(src="/img/Add.png", title="Добавить")
-                        img(src="/img/Edit.png", id="edit", title="Редактировать")
+                        a(href="#editForm", class="popup-with-form")
+                            img(src="/img/Edit.png", id="edit", title="Редактировать")
                         img(src="/img/Delete.png", id="delete", title="Удалить")
 
             table(border=1, cellpadding=10, id="my_table", class="display")
@@ -121,3 +293,142 @@ html
                                 | #{obj.At_Razm}
                             td
                                 | #{obj.At_Kl}
+
+
+        form(method="GET", action='addObject/add', id="myform", class="mfp-hide white-popup-block")
+            table(border=0, cellpadding=10)
+                thead
+                    h1 Добавление объекта
+                tbody
+                    tr
+                        th Системный номер
+                        td(width=10)
+                            input(type='text',value='',placeholder='at_syst',name='at_syst', size=6)
+                    tr
+                        th Домен
+                        td
+                            input(type='text',value='',placeholder='dom',name='dom', size=6)
+                    tr
+                        th Обозначение
+                        td
+                            input(type='text',value='',placeholder='Den',name='Den', size=6)
+                    tr
+                        th Наименование концепта
+                        td
+                            input(type='text',value='',placeholder='наименование',name='Naim', size=50)
+                    tr
+                        th Тип поля
+                        td
+                            select(name='At_Type', id='At_Type')
+                                option(value='int') Целое
+                                option(value="float") Вещественное
+                                option(value="string") Строковый
+                    tr
+                        th Длина поля
+                        td
+                            input(type='text',value='',placeholder='At_Len',name='At_Len',id = 'At_Len', size=6)
+                    tr
+                        th Количество знаков после запятой
+                        td
+                            input(type='text',value='',placeholder='At_Dec',name='At_Dec', id= 'At_Dec', size=6)
+                    tr
+                        th Мин. значение
+                        td
+                            input(type='text',value='',placeholder='At_Min',name='At_Min', id='At_Min', size=6)
+                    tr
+                        th Макс. значение
+                        td
+                            input(type='text',value='',placeholder='At_Max',name='At_Max', size=6)
+                    tr
+                        th Размерность
+                        td
+                            select(name='At_Razm', id='At_Razm')
+                                option(value='мм') мм
+                                option(value='см') см
+                                option(value='м') м
+                                option(value='°') °
+                                option(value='рад') рад
+                                option(value='\"') "
+                                option(value='мм²') мм²
+                                option(value='см²') см²
+                                option(value='м²') м²
+                                option(value='об/мин') об/мин
+                    tr
+                        th Номер классификатора
+                        td
+                            input(type='text',value='',placeholder='At_Kl',name='At_Kl', size=6)
+            p
+            input(type='submit',value='Добавить')
+        if reqParam
+            script.
+                dhtmlx.alert("Объект успешно добавлен!");
+
+
+        form(method="GET", action='addObject/add', id="editForm", class="mfp-hide white-popup-block")
+            table(border=0, cellpadding=10, onload="changeValue();")
+                thead
+                    h1 Редактировние объекта
+                tbody
+                    tr
+                        th Системный номер
+                        td(width=10)
+                            input(type='text', placeholder='at_syst', id = "at_syst" name='at_syst', size=6)
+                    tr
+                        th Домен
+                        td
+                            input(type='text',value='',placeholder='dom',name='dom', id="dom" size=6)
+                    tr
+                        th Обозначение
+                        td
+                            input(type='text',value='',placeholder='Den',name='Den', id="Den", size=6)
+                    tr
+                        th Наименование концепта
+                        td
+                            input(type='text',value='',placeholder='наименование',name='Naim',id='Naim', size=50)
+                    tr
+                        th Тип поля
+                        td
+                            select(name='At_Type', id='At_Type')
+                                option(value='int') Целое
+                                option(value="float") Вещественное
+                                option(value="string") Строковый
+                    tr
+                        th Длина поля
+                        td
+                            input(type='text',value='',placeholder='At_Len',name='At_Len',id = 'At_Len', size=6)
+                    tr
+                        th Количество знаков после запятой
+                        td
+                            input(type='text',value='',placeholder='At_Dec',name='At_Dec', id= 'At_Dec', size=6)
+                    tr
+                        th Мин. значение
+                        td
+                            input(type='text',value='',placeholder='At_Min',name='At_Min', id='At_Min', size=6)
+                    tr
+                        th Макс. значение
+                        td
+                            input(type='text',value='',placeholder='At_Max',name='At_Max', id='At_Max' size=6)
+                    tr
+                        th Размерность
+                        td
+                            select(name='At_Razm', id='At_Razm')
+                                option(value='мм') мм
+                                option(value='см') см
+                                option(value='м') м
+                                option(value='°') °
+                                option(value='рад') рад
+                                option(value='\"') "
+                                option(value='мм²') мм²
+                                option(value='см²') см²
+                                option(value='м²') м²
+                                option(value='об/мин') об/мин
+                    tr
+                        th Номер классификатора
+                        td
+                            input(type='text',value='',placeholder='At_Kl',name='At_Kl',id='At_Kl' size=6)
+            p
+            input(type='submit',value='Редактировать')
+
+        if reqParam
+            script.
+                dhtmlx.alert("Объект успешно добавлен!");

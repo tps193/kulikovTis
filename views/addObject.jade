@@ -95,7 +95,6 @@ html
                     },
                     submitHandler: function (form) {
                         if ($('#myform').valid()) {
-                            //common initialization
                             dhtmlx.message({
                                 title: "Ок",
                                 type: "alert-warning",
@@ -105,15 +104,9 @@ html
                                 }
                             });
 
-
-
                         }
                     }
                 });
-
-                $('#edit').click( function () {
-                    window.location.replace('/editObject/'+selectedObjectID);
-                } );
 
             } );
     body
@@ -134,27 +127,27 @@ html
                         th Размерность
                         th Номер классификатора
                     tr
+                        td(width=10)
+                            input(type='text',value='',placeholder='at_syst',name='at_syst', size=6)
                         td
-                            input(type='text',value='',placeholder='at_syst',name='at_syst')
+                            input(type='text',value='',placeholder='dom',name='dom', size=6)
                         td
-                            input(type='text',value='',placeholder='dom',name='dom')
+                            input(type='text',value='',placeholder='Den',name='Den', size=6)
                         td
-                            input(type='text',value='',placeholder='Den',name='Den')
-                        td
-                            input(type='text',value='',placeholder='наименование',name='Naim')
+                            input(type='text',value='',placeholder='наименование',name='Naim', size=20)
                         td
                             select(name='At_Type', id='At_Type')
                                 option(value='int') Целое
                                 option(value="float") Вещественное
                                 option(value="string") Строковый
                         td
-                            input(type='text',value='',placeholder='At_Len',name='At_Len',id = 'At_Len')
+                            input(type='text',value='',placeholder='At_Len',name='At_Len',id = 'At_Len', size=6)
                         td
-                            input(type='text',value='',placeholder='At_Dec',name='At_Dec', id= 'At_Dec')
+                            input(type='text',value='',placeholder='At_Dec',name='At_Dec', id= 'At_Dec', size=6)
                         td
-                            input(type='text',value='',placeholder='At_Min',name='At_Min', id='At_Min')
+                            input(type='text',value='',placeholder='At_Min',name='At_Min', id='At_Min', size=6)
                         td
-                            input(type='text',value='',placeholder='At_Max',name='At_Max')
+                            input(type='text',value='',placeholder='At_Max',name='At_Max', size=6)
                         td
                             select(name='At_Razm', id='At_Razm')
                                 option(value='мм') мм
@@ -170,7 +163,7 @@ html
                                 option(value='об/мин') об/мин
                         td
 
-                            input(type='text',value='',placeholder='At_Kl',name='At_Kl')
+                            input(type='text',value='',placeholder='At_Kl',name='At_Kl', size=6)
             p
             input(type='submit',value='Добавить')
         if reqParam

@@ -1,0 +1,10 @@
+/**
+ * Created by inord on 24/06/14.
+ */
+$(function() {
+    // HTML for content
+    $('.html_popup').popup({
+        content: '<h1>Добавление объекта</h1><form method="GET" action="addObject/add" id="myform"><table border="1" cellpadding="10"><tbody><tr><th>Системный номер</th><th>Домен</th><th>Обозначение</th><th>Наименование концепта</th><th>Тип поля</th><th>Длина поля</th><th>Кол-во знаков после запятой</th><th>Мин. значение</th><th>Макс. значение</th><th>Размерность</th><th>Номер классификатора</th></tr><tr><td width="10"><input type="text" value="" placeholder="at_syst" name="at_syst" size="6"></td><td><input type="text" value="" placeholder="dom" name="dom" size="6"></td><td><input type="text" value="" placeholder="Den" name="Den" size="6"></td><td><input type="text" value="" placeholder="наименование" name="Naim" size="20"></td><td><select name="At_Type" id="At_Type"><option value="int">Целое</option><option value="float">Вещественное</option><option value="string">Строковый</option></select></td><td><input type="text" value="" placeholder="At_Len" name="At_Len" id="At_Len" size="6"></td><td><input type="text" value="" placeholder="At_Dec" name="At_Dec" id="At_Dec" size="6"></td><td><input type="text" value="" placeholder="At_Min" name="At_Min" id="At_Min" size="6"></td><td><input type="text" value="" placeholder="At_Max" name="At_Max" size="6"></td><td><select name="At_Razm" id="At_Razm"><option value="мм">мм</option><option value="см">см</option><option value="м">м</option><option value="°">°</option><option value="рад">рад</option><option value="&quot;">"</option><option value="рад">рад</option><option value="мм²">мм²</option><option value="см²">см²</option><option value="м²">м²</option><option value="об/мин">об/мин</option></select></td><td><input type="text" value="" placeholder="At_Kl" name="At_Kl" size="6"></td></tr></tbody></table><p></p><input type="submit" value="Добавить"></form>',
+        type: 'html'
+    });
+});
