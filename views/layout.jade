@@ -11,7 +11,7 @@ html
         //Validator
         script(src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js")
         script(src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/localization/messages_ru.js")
-        
+
         //Popup Window
         link(rel="stylesheet", href="/css/magnific-popup.css")
         script(src='/js/jquery.magnific-popup.js')
@@ -20,12 +20,15 @@ html
         script(src="/js/init.js", class="init", language="javascript",type="text/javascript")
     body
         block title
-        table(cellpadding="3",cellspacing="0", border="0", style="width: 30%; margin: 0 auto 2em auto;")
+        table(cellpadding="1",cellspacing="0", border="0", style="width: 30%; margin: 0 auto 2em auto;")
+            thead
+                center
+                    h3 Расширенный поиск
             tbody
                 tr
                     th Домен
                     th Обозначение
-                    th Наименование концепта
+                    th Наименование
                 tr( id="filter_col1", data-column="1")
                     td(align="center",id="filter_col1", data-column="1")
                         input( type="text", class="column_filter", id="col1_filter",placeholder='Домен')

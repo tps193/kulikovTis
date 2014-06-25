@@ -7,9 +7,8 @@ function filterColumn ( i ) {
         $('#col'+i+'_filter').val()
     ).draw();
 }
-function getSelectedObjectID() {
-    return selectedObjectID;
-}
+
+//Gets needed data from DataArray and puts it into input fields
 function changeValue() {
     var selectedObject;
     for(var i=0; i<local_data.length; i++) {
@@ -43,6 +42,7 @@ function changeValue() {
     var At_Kl = document.getElementById('At_KlEdit');
     At_Kl.value = selectedObject.At_Kl;
 }
+
 $(document).ready(function() {
     var table = $('#my_table').DataTable( {
         "language": {
@@ -63,6 +63,7 @@ $(document).ready(function() {
             changeValue();
         }
     } );
+
     $('#delete').click( function () {
         dhtmlx.confirm({
             title: "Удалить",
@@ -81,6 +82,7 @@ $(document).ready(function() {
             }
         });
     } );
+
     //POPUP!
     $('.popup-with-form').magnificPopup({
         type: 'inline',
@@ -126,7 +128,8 @@ $(document).ready(function() {
             return len>0 && len<257;
         }
     }, "Введите корректный размер поля.");
-    $('#myform').validate({ // initialize the plugin
+
+    $("#myform").validate({ // initialize the plugin
         rules: {
             at_syst: "required",
             dom: {
@@ -184,18 +187,10 @@ $(document).ready(function() {
     $('#editForm').validate({ // initialize the plugin
         rules: {
             at_syst: "required",
-            dom: {
-                required: true
-            },
-            Den: {
-                required: true
-            },
-            Naim: {
-                required: true
-            },
-            At_Type: {
-                required: true
-            },
+            dom: { required: true },
+            Den: { required: true },
+            Naim: { required: true },
+            At_Type: { required: true },
             At_Len: {
                 required: true,
                 number: true,
@@ -216,12 +211,8 @@ $(document).ready(function() {
                 validSymbols:'#At_Type',
                 greaterThan:'#At_Min'
             },
-            At_Razm: {
-                required: true
-            },
-            At_Kl: {
-                required: true
-            }
+            At_Razm: { required: true },
+            At_Kl: { required: true }
         },
         submitHandler: function (form) {
             if ($('#editForm').valid()) {

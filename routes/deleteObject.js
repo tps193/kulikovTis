@@ -31,7 +31,6 @@ router.get('/', function(req, res) {
         }
     });
 
-//    res.send('TEST!');
     res.render('searchEdit', { jsonObjects: jsonString.objects });
 });
 
