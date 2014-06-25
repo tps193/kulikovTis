@@ -309,20 +309,6 @@
             "At_Kl": "9"
         },
         {
-            "id": 11,
-            "at_syst": "0",
-            "dom": "0",
-            "Den": "0",
-            "Naim": "0",
-            "At_Type": "int",
-            "At_Len": "0",
-            "At_Dec": "0",
-            "At_Min": "0",
-            "At_Max": "9",
-            "At_Razm": "мм",
-            "At_Kl": "9"
-        },
-        {
             "id": 12,
             "at_syst": "f",
             "dom": "f",
@@ -615,6 +601,20 @@
             "At_Max": "1",
             "At_Razm": "мм",
             "At_Kl": "2"
+        },
+        {
+            "id": "33",
+            "at_syst": "jJKjkhhjkh",
+            "dom": "hjk",
+            "Den": "hkj",
+            "Naim": "hjk",
+            "At_Type": "int",
+            "At_Len": "hj",
+            "At_Dec": "hj",
+            "At_Min": "hj",
+            "At_Max": "hjkhjk",
+            "At_Razm": "мм",
+            "At_Kl": "jk"
         }
     ]
 }

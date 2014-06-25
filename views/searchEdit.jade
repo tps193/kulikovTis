@@ -116,11 +116,6 @@ html
 
                 } );
 
-                //$('#edit').click( function () {
-                //    window.location.replace('/editObject/'+selectedObjectID);
-                //} );
-
-
                 //POPUP!
                 $('.popup-with-form').magnificPopup({
                     type: 'inline',
@@ -232,43 +227,43 @@ html
 
                 $('#editForm').validate({ // initialize the plugin
                     rules: {
-                        at_systEdit: "required",
-                        domEdit: {
+                        at_syst: "required",
+                        dom: {
                             required: true
                         },
-                        DenEdit: {
+                        Den: {
                             required: true
                         },
-                        NaimEdit: {
+                        Naim: {
                             required: true
                         },
-                        At_TypeEdit: {
+                        At_Type: {
                             required: true
                         },
-                        At_LenEdit: {
+                        At_Len: {
                             required: true,
                             number: true,
                             fieldLength: '#At_Type',
                             min: 1
                         },
-                        At_DecEdit: {
+                        At_Dec: {
                             required: true,
                             min: 1,
                             number: true
                         },
-                        At_MinEdit: {
+                        At_Min: {
                             required: true,
                             validSymbols:'#At_Type'
                         },
-                        At_MaxEdit: {
+                        At_Max: {
                             required: true,
                             validSymbols:'#At_Type',
                             greaterThan:'#At_Min'
                         },
-                        At_RazmEdit: {
+                        At_Razm: {
                             required: true
                         },
-                        At_KlEdit: {
+                        At_Kl: {
                             required: true
                         }
                     },
