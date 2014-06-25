@@ -11,3 +11,137 @@ block searchEditMenu
                     img(src="/img/Delete.png", id="delete", title="Удалить")
 block title
     h2 Система сопровождения "ТИС-Словарь"
+
+block addAndEdit
+    form(method="POST", action='addObject', id="myform", class="mfp-hide white-popup-block")
+        table(border=0, cellpadding=10)
+            thead
+                h1 Добавление объекта
+            tbody
+                tr
+                    th Системный номер
+                    td(width=10)
+                        input(type='text',value='',placeholder='at_syst',name='at_syst', size=6)
+                tr
+                    th Домен
+                    td
+                        input(type='text',value='',placeholder='dom',name='dom', size=6)
+                tr
+                    th Обозначение
+                    td
+                        input(type='text',value='',placeholder='Den',name='Den', size=6)
+                tr
+                    th Наименование концепта
+                    td
+                        input(type='text',value='',placeholder='наименование',name='Naim', size=50)
+                tr
+                    th Тип поля
+                    td
+                        select(name='At_Type', id='At_Type')
+                            option(value='int', id='int') Целое
+                            option(value="float", id="float") Вещественное
+                            option(value="string", id="string") Строковый
+                tr
+                    th Длина поля
+                    td
+                        input(type='text',value='',placeholder='At_Len',name='At_Len',id = 'At_Len', size=6)
+                tr
+                    th Количество знаков после запятой
+                    td
+                        input(type='text',value='',placeholder='At_Dec',name='At_Dec', id= 'At_Dec', size=6)
+                tr
+                    th Мин. значение
+                    td
+                        input(type='text',value='',placeholder='At_Min',name='At_Min', id='At_Min', size=6)
+                tr
+                    th Макс. значение
+                    td
+                        input(type='text',value='',placeholder='At_Max',name='At_Max', size=6)
+                tr
+                    th Размерность
+                    td
+                        select(name='At_Razm', id='At_Razm')
+                            option(value='мм') мм
+                            option(value='см') см
+                            option(value='м') м
+                            option(value='°') °
+                            option(value='рад') рад
+                            option(value='\"') "
+                            option(value='мм²') мм²
+                            option(value='см²') см²
+                            option(value='м²') м²
+                            option(value='об/мин') об/мин
+                tr
+                    th Номер классификатора
+                    td
+                        input(type='text',value='',placeholder='At_Kl',name='At_Kl', size=6)
+        p
+        input(type='submit',value='Добавить')
+    form(method="POST", action='editObject', id="editForm", class="mfp-hide white-popup-block")
+        table(border=0, cellpadding=10, onload="changeValue();")
+            thead
+                h1 Редактировние объекта
+            tbody
+                tr
+                    th id
+                    td
+                        input(type='text', id = "idEdit" name='id', size=6, readonly="readonly")
+                tr
+                    th Системный номер
+                    td
+                        input(type='text', placeholder='at_syst', id = "at_systEdit" name='at_syst', size=6)
+                tr
+                    th Домен
+                    td
+                        input(type='text',value='',placeholder='dom',name='dom', id="domEdit" size=6)
+                tr
+                    th Обозначение
+                    td
+                        input(type='text',value='',placeholder='Den',name='Den', id="DenEdit", size=6)
+                tr
+                    th Наименование концепта
+                    td
+                        input(type='text',value='',placeholder='наименование',name='Naim',id='NaimEdit', size=50)
+                tr
+                    th Тип поля
+                    td
+                        select(name='At_Type', id='At_TypeEdit')
+                            option(value='int') Целое
+                            option(value="float") Вещественное
+                            option(value="string") Строковый
+                tr
+                    th Длина поля
+                    td
+                        input(type='text',value='',placeholder='At_Len',name='At_Len', id = 'At_LenEdit', size=6)
+                tr
+                    th Количество знаков после запятой
+                    td
+                        input(type='text',value='',placeholder='At_Dec',name='At_Dec', id= 'At_DecEdit', size=6)
+                tr
+                    th Мин. значение
+                    td
+                        input(type='text',value='',placeholder='At_Min',name='At_Min', id='At_MinEdit', size=6)
+                tr
+                    th Макс. значение
+                    td
+                        input(type='text',value='',placeholder='At_Max',name='At_Max', id='At_MaxEdit' size=6)
+                tr
+                    th Размерность
+                    td
+                        select(name='At_Razm', id='At_RazmEdit')
+                            option(value='мм') мм
+                            option(value='см') см
+                            option(value='м') м
+                            option(value='°') °
+                            option(value='рад') рад
+                            option(value='\"') "
+                            option(value='мм²') мм²
+                            option(value='см²') см²
+                            option(value='м²') м²
+                            option(value='об/мин') об/мин
+                tr
+                    th Номер классификатора
+                    td
+                        input(type='text',value='',placeholder='At_Kl',name='At_Kl',id='At_KlEdit' size=6)
+        p
+        input(type='submit',value='Редактировать')
