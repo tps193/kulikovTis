@@ -88,6 +88,13 @@ $(document).ready(function() {
         type: 'inline',
         preloader: false
     });
+
+    //POPUP!
+    $('.popup-with-aboutApp').magnificPopup({
+        type: 'inline',
+        preloader: false
+    });
+
     //validator
     $.validator.addMethod("greaterThan", function (value, element, param) {
         var $min = $(param);

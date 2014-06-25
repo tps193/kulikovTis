@@ -39,17 +39,17 @@ html
         block searchEditMenu
         table(border=1, cellpadding=10, id="my_table", class="display")
             thead
-                th Системный номер
-                th Домен
-                th Обозначение
-                th Наименование концепта
-                th Тип поля
-                th Длина поля
-                th Кол-во знаков после запятой
-                th Мин. значение
-                th Макс. значение
-                th Размерность
-                th Номер классификатора
+                th(title="Сортировка") Системный номер
+                th(title="Сортировка") Домен
+                th(title="Сортировка") Обозначение
+                th(title="Сортировка") Наименование концепта
+                th(title="Сортировка") Тип поля
+                th(title="Сортировка") Длина поля
+                th(title="Сортировка") Кол-во знаков после запятой
+                th(title="Сортировка") Мин. значение
+                th(title="Сортировка") Макс. значение
+                th(title="Сортировка") Размерность
+                th(title="Сортировка") Номер классификатора
             tbody
                 each obj in jsonObjects
                     tr(id="#{obj.id}")
@@ -76,3 +76,18 @@ html
                         td
                             | #{obj.At_Kl}
        block addAndEdit
+
+
+    center
+        a(href="#aboutApp", class="popup-with-aboutApp")
+            | ТИС-Словарь
+    center 2014 (c)
+    p
+
+    div(id="aboutApp", class="mfp-hide white-popup-block")
+        h1 О приложении
+        h3 Разработка:
+        p Егор Анатольевич
+        p Сергей Леонидович
+        p
+        h4 версия 1.0
