@@ -98,29 +98,55 @@ $(document).ready(function() {
     //validator
     $.validator.addMethod("greaterThan", function (value, element, param) {
         var $min = $(param);
+        var addingName="";
+        var name = $(param).attr('id');
+        if (new RegExp("Edit").test(name)) {
+            addingName = "Edit";
+        }
         if (this.settings.onfocusout) {
             $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
                 $(element).valid();
             });
         }
+        if ($("#At_Type"+addingName).val() == "string") {
+            return true;
+        }
         return parseInt(value) > parseInt($min.val());
     }, "Максимум должен быть больше чем минимум");
     $.validator.addMethod("validSymbols", function (value, element, param) {
         var $type = $(param);
+        var addingName="";
+        var name = $(param).attr('id');
+        if (new RegExp("Edit").test(name)) {
+            addingName = "Edit";
+        }
         var mask;
-        var len = "" ? 0 : parseInt($("#At_Len").val());
+        var len = "" || NaN ? 0 : parseInt($("#At_Len"+addingName).val());
         if ($type.val() == "int") {
             mask = "^((-[0-9]{1," + (len-1) + "})|([0-9]{1," + len +"}))$";
         } else if ($type.val() == "float") {
-            var afterDotSymbols = "" ? 0 : parseInt($("#At_Dec").val());
-            mask = "^((-{0,1}\\d{1,"+(len-afterDotSymbols)+"}\\.\\d{1,"+afterDotSymbols+"})|(-{0,1}\\d{0,+"+len+"))$";
+            var afterDotSymbols = "" ? 0 : parseInt($("#At_Dec"+addingName).val());
+            if (afterDotSymbols < 1) {
+                mask = "^((-{0,1}\\d{0,"+len+"}))$";
+            } else {
+                mask = "^((-{0,1}\\d{1,"+(len-afterDotSymbols)+"}\\.\\d{1,"+afterDotSymbols+"}))$";
+            }
         } else {
-            mask = "^.{1,"+len+"}$";
+            mask = "^.{0,"+len+"}$";
         }
         var mask = new RegExp(mask);
         var b = mask.test(value);
         return mask.test(value);
     }, "Некорректный формат данных");
+    $.validator.addMethod("customRequired", function (value, element, param) {
+        var $type = $(param);
+        var fieldValue=value;
+        if ($type.val() != "string") {
+            return value != "";
+        } else {
+            return true;
+        }
+    }, "Это поле необходимо заполнить.");
     $.validator.addMethod("fieldLength", function (value, element, param) {
         var $type = $(param);
         var len=value;
@@ -158,16 +184,16 @@ $(document).ready(function() {
                 min: 1
             },
             At_Dec: {
-                required: true,
-                min: 1,
+                customRequired: '#At_Type',
+                min: 0,
                 number: true
             },
             At_Min: {
-                required: true,
+                customRequired: '#At_Type',
                 validSymbols:'#At_Type'
             },
             At_Max: {
-                required: true,
+                customRequired: '#At_Type',
                 validSymbols:'#At_Type',
                 greaterThan:'#At_Min'
             },
@@ -194,32 +220,44 @@ $(document).ready(function() {
     $('#editForm').validate({ // initialize the plugin
         rules: {
             at_syst: "required",
-            dom: { required: true },
-            Den: { required: true },
-            Naim: { required: true },
-            At_Type: { required: true },
+            dom: {
+                required: true
+            },
+            Den: {
+                required: true
+            },
+            Naim: {
+                required: true
+            },
+            At_Type: {
+                required: true
+            },
             At_Len: {
                 required: true,
                 number: true,
-                fieldLength: '#At_Type',
+                fieldLength: '#At_TypeEdit',
                 min: 1
             },
             At_Dec: {
-                required: true,
-                min: 1,
+                customRequired: '#At_TypeEdit',
+                min: 0,
                 number: true
             },
             At_Min: {
-                required: true,
-                validSymbols:'#At_Type'
+                customRequired: '#At_TypeEdit',
+                validSymbols:'#At_TypeEdit'
             },
             At_Max: {
-                required: true,
-                validSymbols:'#At_Type',
-                greaterThan:'#At_Min'
+                customRequired: '#At_TypeEdit',
+                validSymbols:'#At_TypeEdit',
+                greaterThan:'#At_MinEdit'
             },
-            At_Razm: { required: true },
-            At_Kl: { required: true }
+            At_Razm: {
+                required: true
+            },
+            At_Kl: {
+                required: true
+            }
         },
         submitHandler: function (form) {
             if ($('#editForm').valid()) {
