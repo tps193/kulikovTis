@@ -64,6 +64,46 @@ $(document).ready(function() {
         }
     } );
 
+    //POPUP!
+    $('.popup-with-form').magnificPopup({
+        type: 'inline',
+        preloader: false
+    });
+
+    //POPUP!
+    $('.popup-with-aboutApp').magnificPopup({
+        type: 'inline',
+        preloader: false
+    });
+
+//    $('#addSubmit').click( function () {
+//        $.get( '/addObject', function(data) {
+//            table.row.add(['1','testtesttest','3','4','5','6','7','8','9','10','11']).draw();
+//            $('#results').html(data);
+//        });
+//        $.magnificPopup.close();
+//        dhtmlx.alert("Объект добавлен!");
+//    } );
+
+//    $('#editSubmit').click( function () {
+//        dhtmlx.confirm({
+//            title: "Удалить",
+//            cancel: "Отмена",
+//            type:"confirm",
+//            text: "Вы уверены, что хотите удалить объект?",
+//            callback: function(mode) {
+//                if(mode==true) {
+//                    table.row('.selected').remove().draw( false );
+//                    //var parameters = { id: selectedObjectID };
+//                    $.get( '/editObject', function(data) {
+//                        $('#results').html(data);
+//                    });
+//                    dhtmlx.alert("Объект отредактирован!");
+//                }
+//            }
+//        });
+//    } );
+
     $('#delete').click( function () {
         dhtmlx.confirm({
             title: "Удалить",
@@ -82,18 +122,6 @@ $(document).ready(function() {
             }
         });
     } );
-
-    //POPUP!
-    $('.popup-with-form').magnificPopup({
-        type: 'inline',
-        preloader: false
-    });
-
-    //POPUP!
-    $('.popup-with-aboutApp').magnificPopup({
-        type: 'inline',
-        preloader: false
-    });
 
     //validator
     $.validator.addMethod("greaterThan", function (value, element, param) {
@@ -139,18 +167,10 @@ $(document).ready(function() {
     $("#myform").validate({ // initialize the plugin
         rules: {
             at_syst: "required",
-            dom: {
-                required: true
-            },
-            Den: {
-                required: true
-            },
-            Naim: {
-                required: true
-            },
-            At_Type: {
-                required: true
-            },
+            dom: { required: true },
+            Den: { required: true },
+            Naim: { required: true },
+            At_Type: { required: true },
             At_Len: {
                 required: true,
                 number: true,
@@ -171,12 +191,8 @@ $(document).ready(function() {
                 validSymbols:'#At_Type',
                 greaterThan:'#At_Min'
             },
-            At_Razm: {
-                required: true
-            },
-            At_Kl: {
-                required: true
-            }
+            At_Razm: { required: true },
+            At_Kl: { required: true }
         },
         submitHandler: function (form) {
             if ($('#myform').valid()) {

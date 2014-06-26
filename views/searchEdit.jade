@@ -77,6 +77,7 @@ block addAndEdit
                         input(type='text',value='',placeholder='At_Kl',name='At_Kl', size=6)
         p
         input(type='submit',value='Добавить')
+        //button(id="addSubmit") Добавить
     form(method="POST", action='editObject', id="editForm", class="mfp-hide white-popup-block")
         table(border=0, cellpadding=10, onload="changeValue();")
             thead
@@ -145,3 +146,4 @@ block addAndEdit
                         input(type='text',value='',placeholder='At_Kl',name='At_Kl',id='At_KlEdit' size=6)
         p
         input(type='submit',value='Редактировать')
+        //button(id="editSubmit") Редактировать
